@@ -3,17 +3,17 @@ kind: Kustomization
 resources:
   - database
   - exoplanets
-secretGenerator:
+secretGenerator: # it will add random suffix to the secret name
   - name: db-secret
     literals:
-      - POSTGRESQL_PASSWORD=redhat@123
+      - POSTGRESQL_PASSWORD=raj@123
       - DB_USER_PASSWORD=postgres
       - DB_NAME=redhat_db
-      - DB_PASSWORD=redhat@123
+      - DB_PASSWORD=raj@123
 
 configMapGenerator:
   - name: db-config
     behavior: merge
     literals:
-      - DB_HOST=production
+      - DB_HOST=dev
       - DB_PORT=5432
