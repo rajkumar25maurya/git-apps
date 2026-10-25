@@ -98,4 +98,15 @@ Remove the resources managed by this Kustomize configuration:
 
 ```bash
 oc delete -k base
+# Preview either environment
+oc kustomize overlays/dev
+oc kustomize overlays/prod
+
+# Apply either environment
+oc apply -k overlays/dev
+oc apply -k overlays/prod
+
+# Remove either environment
+oc delete -k overlays/dev
+oc delete -k overlays/prod
 ```
