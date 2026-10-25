@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - database
+  - exoplanets
+secretGenerator:
+  - name: db-secret
+    literals:
+      - POSTGRESQL_PASSWORD=redhat@123
+      - DB_USER_PASSWORD=postgres
+      - DB_NAME=redhat_db
+      - DB_PASSWORD=redhat@123
+
+configMapGenerator:
+  - name: db-config
+    behavior: merge
+    literals:
+      - DB_HOST=production
+      - DB_PORT=5432

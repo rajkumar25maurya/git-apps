@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  POSTGRESQL_DATABASE: "exoplanets_db"
+  POSTGRESQL_USER: "dbuser"

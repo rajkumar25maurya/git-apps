@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exoplanets-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: exoplanets
+  template:
+    metadata:
+      labels:
+        app: exoplanets
+    spec:
+      containers:
+        - name: web
+          image: nginxinc/nginx-unprivileged:alpine
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: postgres-service
